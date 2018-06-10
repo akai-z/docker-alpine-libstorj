@@ -1,6 +1,7 @@
 FROM alpine:latest AS builder
 
-LABEL maintainer="Ammar K."
+LABEL maintainer="Ammar K." \
+      stage=intermediate
 
 ARG VERSION=tags/v2.0.0-beta3
 ARG REPOSITORY=storj/libstorj
