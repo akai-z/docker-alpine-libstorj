@@ -1,4 +1,4 @@
-FROM alpine:latest AS builder
+FROM alpine:3.8 AS builder
 
 LABEL maintainer="Ammar K." \
       stage=intermediate
@@ -41,7 +41,7 @@ RUN set -x \
     && rm -rf $SOURCE_DIR ${TMPDIR}* \
     && apk del .build-deps
 
-FROM alpine:latest
+FROM alpine:3.8
 
 LABEL maintainer="Ammar K."
 
