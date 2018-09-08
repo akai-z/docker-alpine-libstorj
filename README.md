@@ -33,3 +33,7 @@ Allows to change Github repository name.
 ## Authors
 
 * Ammar K.
+
+## License
+
+[GNU General Public License version 2](https://github.com/akai-z/docker-alpine-libstorj/blob/master/LICENSE)
