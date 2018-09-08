@@ -29,3 +29,7 @@ Allows to change Libstorj version.
 * `REPOSITORY`  
 Allows to change Github repository name.  
 `REPOSITORY=<GITHUB_USERNAME>/<GITHUB_REPOSITORY_NAME>`
+
+## Authors
+
+* Ammar K.
