@@ -9,6 +9,10 @@ This is an Alpine Linux based Libstorj Docker image.
 * [`2.0.0-beta2` (*2.0-beta/beta2/Dockerfile*)](https://github.com/akai-z/docker-alpine-libstorj/blob/master/2.0-beta/beta2/Dockerfile)
 * [`1.0.3, 1.0, latest` (*1.0/Dockerfile*)](https://github.com/akai-z/docker-alpine-libstorj/blob/master/1.0/Dockerfile)
 
+## Alpine version
+
+`3.8`
+
 ## What is Libstorj?
 
 Asynchronous multi-platform C library and CLI for encrypted file transfer on the Storj network.
