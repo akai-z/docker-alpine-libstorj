@@ -35,6 +35,10 @@ Allows to change Libstorj version.
 Allows to change Github repository name.  
 `REPOSITORY=<GITHUB_USERNAME>/<GITHUB_REPOSITORY_NAME>`
 
+* `BUILDER_URL`  
+Allows to change library source builder shell script URL.  
+([Click here to know more about the script](https://github.com/akai-z/libstorj-alpine-source-builder))
+
 ## Authors
 
 * Ammar K.
