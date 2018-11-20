@@ -22,12 +22,11 @@ FROM alpine:3.8
 
 LABEL maintainer="Ammar K."
 
-RUN set -x \
-    && apk update \
-    && apk add -u --no-cache \
-        json-c \
-        libcurl \
-        libuv \
-        nettle
+COPY --from=builder /usr/local/bin/storj \
+    /usr/local/bin/libstorj-alpine-source-builder.sh \
+    /usr/local/bin/
 
-COPY --from=builder /usr/local/bin/storj /usr/local/bin/storj
+RUN set -x \
+    && libstorj-alpine-source-builder.sh \
+        run_deps_install \
+    && rm -f /usr/local/bin/libstorj-alpine-source-builder.sh
