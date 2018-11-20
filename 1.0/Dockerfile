@@ -5,41 +5,18 @@ LABEL maintainer="Ammar K." \
 
 ARG VERSION=tags/v1.0.3
 ARG REPOSITORY=storj/libstorj
+ARG BUILDER_URL=https://raw.githubusercontent.com/akai-z/libstorj-alpine-source-builder/master/libstorj-alpine-source-builder.sh
 
-ENV SOURCE=https://api.github.com/repos/${REPOSITORY}/releases/${VERSION} \
-    SOURCE_DIR=libstorj \
-    TMPDIR=/tmp/
+ADD $BUILDER_URL /usr/local/bin
 
 RUN set -x \
-    && apk update \
-    && apk add -u --no-cache --virtual .build-deps \
-        autoconf \
-        automake \
-        curl \
-        curl-dev \
-        g++ \
-        json-c-dev \
-        libmicrohttpd-dev \
-        libtool \
-        libuv-dev \
-        make \
-        nettle-dev \
-    && mkdir $SOURCE_DIR \
-    && cd $SOURCE_DIR \
-    && curl $SOURCE \
-        | grep "tarball_url" \
-        | cut -d '"' -f 4 \
-        | xargs curl -L \
-        | tar -zx --strip 1 \
-    && mkdir -p build-aux/m4 \
-    && ./autogen.sh \
-    && ./configure \
-    && make \
-    && make install \
-    && ./test/tests \
-    && cd .. \
-    && rm -rf $SOURCE_DIR ${TMPDIR}* \
-    && apk del .build-deps
+    && chmod +x /usr/local/bin/libstorj-alpine-source-builder.sh \
+    && libstorj-alpine-source-builder.sh \
+        -build_deps_install \
+        --repository="$REPOSITORY" \
+        --version="$VERSION" \
+    && libstorj-alpine-source-builder.sh \
+        clean
 
 FROM alpine:3.8
 
