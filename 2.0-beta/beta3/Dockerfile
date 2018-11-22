@@ -16,6 +16,7 @@ RUN set -x \
         --repository="$REPOSITORY" \
         --version="$VERSION" \
     && libstorj-alpine-source-builder.sh \
+        -build_deps_delete \
         clean
 
 FROM alpine:3.8
